@@ -91,7 +91,7 @@ You can now interact with the To-Do List API using a tool like Postman or curl.
   
 ## Code Structure  
 ```bash
-  /todo-list-app
+/todo-list-app
 │
 ├── /src
 │   ├── /db
