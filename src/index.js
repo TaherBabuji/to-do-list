@@ -11,10 +11,6 @@ dotenv.config({
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 
-// app.use("/", (req, res) => {
-//   res.send("Hello");
-// });
-
 import taskRouter from "./routes/task.routes.js";
 
 app.use("/api/v1/task", taskRouter);
