@@ -1,6 +1,6 @@
 # To-Do List Application
 
-This is a simple To-Do List API built with Node.js, Express.js, and MongoDB. It allows users to manage their tasks by providing features such as creating, updating, deleting, and retrieving tasks.
+This is a To-Do List API built with Node.js, Express.js, and MongoDB. It allows users to manage their tasks by providing features such as creating, updating, deleting, and retrieving tasks.
 
 ## Features
 - Create a new task
@@ -8,6 +8,7 @@ This is a simple To-Do List API built with Node.js, Express.js, and MongoDB. It 
 - Update task status or details
 - Delete a task
 - Task validation, including due date and title uniqueness
+- Users can categorize tasks
 
 ## Prerequisites
 Before you begin, ensure you have the following installed:
@@ -91,26 +92,27 @@ You can now interact with the To-Do List API using a tool like Postman or curl.
 ## Code Structure  
 ```bash
   /todo-list-app
-  │
-  ├── /db
-  │   └── index.js         # MongoDB connection configuration
-  ├── /models
-  │   └── task.model.js    # Mongoose model schema for tasks
-  ├── /routes
-  │   └── task.routes.js   # Routes for task operations
-  ├── /controllers
-  │   └── task.controller.js  # Business logic for CRUD operations
-  ├── /utils
-  │   ├── apiError.js      # Custom error handling class
-  │   ├── apiResponse.js   # Success response handler class
-  │   └── asyncHandler.js  # Wrapper to handle async errors
-  ├── .env                 # Environment variables (MONGODB_URI, PORT)
-  ├── package.json         # Project dependencies and scripts
-  └── server.js            # Main entry point for the application
+│
+├── /src
+│   ├── /db
+│   │   └── index.js         # MongoDB connection configuration
+│   ├── /models
+│   │   └── task.model.js    # Mongoose model schema for tasks
+│   ├── /routes
+│   │   └── task.routes.js   # Routes for task operations
+│   ├── /controllers
+│   │   └── task.controller.js  # Business logic for CRUD operations
+│   ├── /utils
+│   │   ├── apiError.js      # Custom error handling class
+│   │   ├── apiResponse.js   # Success response handler class
+│   │   └── asyncHandler.js  # Wrapper to handle async errors
+│   └── index.js            # Main entry point for the application
+├── .env                   # Environment variables (MONGODB_URI, PORT)
+├── package.json           # Project dependencies and scripts
 ```
 
 ### Key Components:
-- ```server.js```: The entry point of the application where Express is initialized, middleware is configured, and routes are loaded. This file also establishes the MongoDB connection using the ```connectDB()``` function from ```db/index.js```.
+- ```index.js```: The entry point of the application where Express is initialized, middleware is configured, and routes are loaded. This file also establishes the MongoDB connection using the ```connectDB()``` function from ```db/index.js```.
 - ```task.model.js```: Defines the structure of a task using Mongoose. Each task has a title, description, category, status, and due date, with validation logic to ensure that certain fields (like the due date being in the future) are correct.
 - ```task.controller.js```: Contains the core logic for handling requests related to tasks, including creating, updating, fetching, and deleting tasks. We use ```asyncHandler``` to catch errors in asynchronous functions.
 - ```apiError.js``` & ```apiResponse.js```: Custom utility classes to standardize API responses and error handling. This ensures consistency in how errors and success messages are returned to the client.
