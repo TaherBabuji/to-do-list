@@ -81,7 +81,9 @@ You can now interact with the To-Do List API using a tool like Postman or curl.
   ```json
   {
     "title": "New Task title",
-    "description": "Updated Task description"
+    "description": "Updated Task description",
+    "category": "New Task category",
+    "dueDate": "Updated Task dueDate",
   }
   ```
 
